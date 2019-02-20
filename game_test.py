@@ -6,7 +6,11 @@ class Unit():
     
 
 class Villager(Unit):
-    
+    attack = .5
+    defense = .5
+    def __init__(self):
+        pass
+
     def move(self):
         print("Villager moved")
 
@@ -16,5 +20,10 @@ class Villager(Unit):
         for selected in possible_buildings:
             if (building == possible_buildings[selected]):
                 print("Built" + possible_buildings[selected])
-                
+
+if __name__ == '__main__':
+    useless = Villager()
+    print(useless.attack)
+    print(useless.defense)
+
     
