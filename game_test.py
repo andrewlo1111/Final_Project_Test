@@ -8,13 +8,21 @@ class Unit():
         print("Unit is in defense position")
     
     def attack_enemy(self,other_unit):
-        print("")
+        print("Attacking " + other_unit)
+        if(self.attack >other_unit.defense):
+            print("Win battle")
+        else:
+            print("Lost battle")
+        
 
 class Villager(Unit):
     attack = .5
     defense = .5
     def __init__(self):
         pass
+    
+    def __str__(self):
+        return "Villager"
 
     def move(self):
         print("Villager moved")
@@ -32,7 +40,29 @@ class Warrior(Unit):
     defense = 1
     def __init__(self):
         pass
+
+    def __str__(self):
+        return "Warrior"
+
+class Archer(Unit):
+    attack = .75
+    defense = 2
+    def __init__(self):
+        pass
     
+    def__str__(self):
+        return "Archer"
+    
+class Knight(Unit):
+    attack = 2
+    defense = .75
+    def __init__(self):
+        pass
+    
+    def __str__(self):
+        return "Knight"
+
+
 if __name__ == '__main__':
     useless = Villager()
     print(useless.attack)
