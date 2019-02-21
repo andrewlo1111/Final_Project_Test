@@ -1,30 +1,41 @@
 class Unit():
-    
+    done = False                    #necessary to see if unit is finished with turn
     def __init__(self):
         self.unit_type = 'Unit'
         self.attack = 1
         self.defense = 1
-        self.done = False
+                   
     
     def __str__(self):
         return self.unit_type
 
     def move(self):
-        print("Villager moved")
+        if(self.done == True):
+            print(self.unit_type + " already took an action this turn")
+            return
+        print( self.unit_type + " moved")
         self.done = True
 
     def defend(self):
+        if(self.done == True):
+            print(self.unit_type + " already took an action this turn")
+            return
         print(self.unit_type + " is in defense position")
         self.defense *= 1.25
         self.done = True
     
     def attack_enemy(self,other_unit):
-        print(self.unit_type + "attacking " + other_unit.unit_type)
+        if(self.done == True):
+            print(self.unit_type + " already took an action this turn")
+            return
+        print(self.unit_type + " attacking " + other_unit.unit_type)
         if(self.attack >other_unit.defense):
             print("Won battle")
-            self.done
+            self.done = True
         else:
             print("Lost battle")
+            self.done = True                  #can later take this out bc technically dies
+            
         
 
 class Villager(Unit):
@@ -121,10 +132,13 @@ if __name__ == '__main__':
     useless = Villager()
     print(useless.attack)
     print(useless.defense)
+    useless.done
     warrior1 = Warrior()
     print(warrior1)
     archer1 = Archer()
+    warrior1.attack_enemy(archer1)
     archer1.defend()
     print(archer1.defense)
+    warrior1.attack_enemy(archer1)
 
     
