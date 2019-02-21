@@ -50,7 +50,7 @@ class Archer(Unit):
     def __init__(self):
         pass
     
-    def__str__(self):
+    def __str__(self):
         return "Archer"
     
 class Knight(Unit):
@@ -62,6 +62,22 @@ class Knight(Unit):
     def __str__(self):
         return "Knight"
 
+class Building():
+    def __init__(self):
+        self.durability = 2
+
+class Farm(Building):
+    def __init__(self):
+        pass
+
+class Mine(Building):
+    def __init__(self):
+        pass
+
+class TownCenter(Building):
+    durability = 3
+    def __init__(self):
+        pass
 
 if __name__ == '__main__':
     useless = Villager()
