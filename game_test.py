@@ -127,8 +127,20 @@ class Player():
         else:
             print("Invalid Unit")
         
-        
+
+class GameBoard():
+    def __init__(self):
+        self.board = []
+        for row_num in range(7):
+            row = [False]
+            self.board.append(row)
+            for column_num in range(7):
+                self.board[row_num].append(False)
+    
+
+
 if __name__ == '__main__':
+    '''
     useless = Villager()
     print(useless.attack)
     print(useless.defense)
@@ -139,6 +151,12 @@ if __name__ == '__main__':
     warrior1.attack_enemy(archer1)
     archer1.defend()
     print(archer1.defense)
-    warrior1.attack_enemy(archer1)
+    warrior1.attack_enemy(archer1)'''
+    game = GameBoard()
+    for row in range(7):
+        for column in range(7):
+            print("{} ".format(game.board[row][column]))
+        print ("\n")
+    
 
     
