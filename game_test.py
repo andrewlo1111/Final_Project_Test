@@ -132,11 +132,20 @@ class GameBoard():
     def __init__(self):
         self.board = []
         for row_num in range(7):
-            row = [False]
+            row = [0]
             self.board.append(row)
             for column_num in range(7):
-                self.board[row_num].append(False)
+                self.board[row_num].append(0)
     
+    def occupied(self,row,column):
+        if(self.board[row][column] == 0):            #0 = nobody there , #1 unit there, #2 = building there, #3 player & building
+            print("Can move here")                   #negative version for other player
+        elif(self.board[row][column] == 1):
+            print("Another of your units is already there")
+        elif(self.board[row][column] == 2):
+            print("Building there")
+        elif(self.board[row][column] == 3):
+            print("Player and building")
 
 
 if __name__ == '__main__':
